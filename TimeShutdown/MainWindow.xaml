@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TimeShutdown"
         mc:Ignorable="d"
-        Title="MainWindow" Height="250" Width="300">
+        MinHeight="250"
+        MinWidth="300"
+        Title="MainWindow" Height="250" Width="320">
     <Grid Margin="10 10 10 10">
         <StackPanel>
             <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
@@ -28,7 +30,7 @@
                 <Label Name="Colon1" Content=":" FontSize="30" HorizontalAlignment="Center" Width="25" />
                 <Label Name="MMLabel" FontSize="30" HorizontalAlignment="Center" Width="45" Content="{Binding SelectedMinutes}" />
                 <Label Name="Colon2" Content=":" FontSize="30" HorizontalAlignment="Center" Width="25" />
-                <Label Name="SSLabel" Content="00" FontSize="30" HorizontalAlignment="Right" Width="45" />
+                <Label Name="SSLabel" FontSize="30" HorizontalAlignment="Right" Width="45" Content="{Binding SelectedSeconds}" />
             </StackPanel>
             <Button Content="uruchom odliczanie" Margin="5" Command="{Binding StartCommand}" />
             <Button Content="Zatrzymaj odliczanie" Margin="5" Command="{Binding StopCommand}" />

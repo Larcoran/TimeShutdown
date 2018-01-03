@@ -1,8 +1,11 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Threading;
 using System.Windows.Input;
+using System.Windows.Threading;
 using TimeShutdown;
 
 namespace TimeShutdown
@@ -10,7 +13,7 @@ namespace TimeShutdown
     internal class MainWindowViewModel : INotifyPropertyChanged
     {
         private int mSelectedMinutes;
-
+        private int mSelectedSeconds;
         private int mSelectedHours;
 
         public ICommand StartCommand
@@ -29,14 +32,14 @@ namespace TimeShutdown
         {
             get;
             set;
-        } = new ObservableCollection<int>(Enumerable.Range(0, 24));
+        } = new ObservableCollection<int>(Enumerable.Range(00, 24));
 
 
         public ObservableCollection<int> myMinutes
         {
             get;
             set;
-        } = new ObservableCollection<int>(Enumerable.Range(0, 60));
+        } = new ObservableCollection<int>(Enumerable.Range(00, 60));
 
 
         public int SelectedMinutes
@@ -51,6 +54,22 @@ namespace TimeShutdown
                 {
                     this.mSelectedMinutes = value;
                     this.OnPropertyChanged("SelectedMinutes");
+                }
+            }
+        }
+
+        public int SelectedSeconds
+        {
+            get
+            {
+                return this.mSelectedSeconds;
+            }
+            set
+            {
+                if (value != this.mSelectedSeconds)
+                {
+                    this.mSelectedSeconds = value;
+                    this.OnPropertyChanged("SelectedSeconds");
                 }
             }
         }
@@ -87,6 +106,12 @@ namespace TimeShutdown
                 propertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
+
+        public void timerOne()
+        {
+            Timer t = new Timer();
+            t.
+         }
     }
 }
 
