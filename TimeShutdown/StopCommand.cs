@@ -30,7 +30,7 @@ internal class StopCommand : ICommand
 
     public void Execute(object parameter)
     {
-        MessageBox.Show("Wyłączanie komputera zatrzymane !!!");
+        MessageBox.Show("Wyłączanie komputera zatrzymane !");
         Process.Start("shutdown", string.Format("/a", Array.Empty<object>()));
     }
 }
