@@ -23,6 +23,7 @@ namespace TimeShutdown
         public MainWindow()
         {
             InitializeComponent();
+            base.DataContext = new MainWindowViewModel();
         }
     }
 }

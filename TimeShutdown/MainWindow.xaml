@@ -5,8 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TimeShutdown"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
+        Title="MainWindow" Height="250" Width="300">
+    <Grid Margin="10 10 10 10">
+        <StackPanel>
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                <RadioButton Margin="5" />
+                <TextBlock Text="Zamknij" Margin="0 0 10 0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <RadioButton Margin="5" />
+                <TextBlock Text="Uśpij" Margin="0 0 10 0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <RadioButton Margin="5" />
+                <TextBlock Text="Uruchom ponownie" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            </StackPanel>
+            <TextBlock Text="komputer za:" Margin="5" HorizontalAlignment="Center" />
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                <TextBlock Text="Godziny:" Margin="5" />
+                <ComboBox Name="HoursCB" Margin="5" Width="40" ItemsSource="{Binding myHours}" SelectedIndex="{Binding SelectedHours, UpdateSourceTrigger=PropertyChanged}" />
+                <TextBlock Text="Minuty:" Margin="5" />
+                <ComboBox Name="MinutesCB" Margin="5" Width="40" ItemsSource="{Binding myMinutes}" SelectedIndex="{Binding SelectedMinutes, UpdateSourceTrigger=PropertyChanged}" />
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                <Label Name="HHLabel" FontSize="30" HorizontalAlignment="Center" Width="45" Content="{Binding SelectedHours}" />
+                <Label Name="Colon1" Content=":" FontSize="30" HorizontalAlignment="Center" Width="25" />
+                <Label Name="MMLabel" FontSize="30" HorizontalAlignment="Center" Width="45" Content="{Binding SelectedMinutes}" />
+                <Label Name="Colon2" Content=":" FontSize="30" HorizontalAlignment="Center" Width="25" />
+                <Label Name="SSLabel" Content="00" FontSize="30" HorizontalAlignment="Right" Width="45" />
+            </StackPanel>
+            <Button Content="uruchom odliczanie" Margin="5" Command="{Binding StartCommand}" />
+            <Button Content="Zatrzymaj odliczanie" Margin="5" Command="{Binding StopCommand}" />
+        </StackPanel>
     </Grid>
 </Window>
